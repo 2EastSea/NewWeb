@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Water Ripple</title>
+
+<style>
+    body{
+        margin:0;
+        overflow:hidden;
+        background:#050b18;
+        cursor:none;
+    }
+
+    .ripple{
+        position:absolute;
+        width:20px;
+        height:20px;
+        border:2px solid rgba(255,255,255,0.8);
+        border-radius:50%;
+        pointer-events:none;
+        animation:ripple 1.5s ease-out forwards;
+    }
+
+    @keyframes ripple{
+        from{
+            transform:translate(-50%,-50%) scale(0);
+            opacity:1;
+        }
+
+        to{
+            transform:translate(-50%,-50%) scale(8);
+            opacity:0;
+        }
+    }
+
+    .text{
+        position:fixed;
+        top:30px;
+        left:30px;
+        color:white;
+        font-family:sans-serif;
+        opacity:0.6;
+        letter-spacing:3px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="text">
+    move your mouse
+</div>
+
+<script>
+document.addEventListener("mousemove", e => {
+
+    const ripple = document.createElement("div");
+    ripple.className = "ripple";
+
+    ripple.style.left = e.clientX + "px";
+    ripple.style.top = e.clientY + "px";
+
+    document.body.appendChild(ripple);
+
+    setTimeout(() => {
+        ripple.remove();
+    }, 1500);
+});
+</script>
+
+</body>
+</html>
