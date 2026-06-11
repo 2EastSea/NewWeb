@@ -1,73 +1,118 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-<meta charset="UTF-8">
-<title>Water Ripple</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하상욱 시집</title>
 
-<style>
-    body{
-        margin:0;
-        overflow:hidden;
-        background:#050b18;
-        cursor:none;
-    }
-
-    .ripple{
-        position:absolute;
-        width:20px;
-        height:20px;
-        border:2px solid rgba(255,255,255,0.8);
-        border-radius:50%;
-        pointer-events:none;
-        animation:ripple 1.5s ease-out forwards;
-    }
-
-    @keyframes ripple{
-        from{
-            transform:translate(-50%,-50%) scale(0);
-            opacity:1;
+    <style>
+        @font-face {
+            font-family: 'JejuStoneWall';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2') format('woff2');
+            font-weight: normal;
+            font-display: swap;
         }
 
-        to{
-            transform:translate(-50%,-50%) scale(8);
-            opacity:0;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-    }
 
-    .text{
-        position:fixed;
-        top:30px;
-        left:30px;
-        color:white;
-        font-family:sans-serif;
-        opacity:0.6;
-        letter-spacing:3px;
-    }
-</style>
+        body {
+            font-family: 'JejuStoneWall', sans-serif;
+            background-color: #f4cd9e;
+            color: #2b2b2b;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #6b4f3f;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .poem {
+            background-color: #fff0e1;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        small {
+            display: block;
+            margin-top: 15px;
+            font-size: 12px;
+        }
+
+
+        @media screen and (max-width: 480px) {
+            body {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 32px;
+                color: #ff0000;
+            }
+
+
+            .poem {
+                padding: 15px;
+            }
+
+        }
+
+    </style>
+
 </head>
+
+
 
 <body>
 
-<div class="text">
-    move your mouse
-</div>
+    <div class="container">
+        <h1>하상욱 시집</h1>
 
-<script>
-document.addEventListener("mousemove", e => {
+        <div class="poem">
 
-    const ripple = document.createElement("div");
-    ripple.className = "ripple";
+            <div class="content">
+                나는 세상에서 내가 제일 소중하다.<br>
+                그래서 내가 사랑하는 사람들이 나에게 소중하다.<br>
+                가장 소중한 내가 사랑하는 사람들이니까.<br><br>
 
-    ripple.style.left = e.clientX + "px";
-    ripple.style.top = e.clientY + "px";
+                <small>- 하상욱 시집 『시로』 p.122 -</small>
+                
+            </div>
 
-    document.body.appendChild(ripple);
+        </div>
 
-    setTimeout(() => {
-        ripple.remove();
-    }, 1500);
-});
-</script>
+        <div class="poem">
+
+            <div class="content">
+                넌 소중해.<br>
+                딱 나만큼<br><br>
+
+                <small>- 하상욱 시집 『시로』 p.123 -</small>
+            </div>
+
+        </div>
+
+        <div class="poem">
+
+            <div class="content">
+                좋은 생각이 났어<br>
+                니 생각.<br><br>
+
+                <small>- 하상욱 시집 『시밤』 -</small>
+            </div>
+
+        </div>
+    </div>
 
 </body>
+
 </html>
